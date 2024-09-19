@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,7 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-h2weo3!j=3_gb%t6hp&a)cmzf8fglli9pky0f$czb^o@6xqxi%"
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -161,13 +162,11 @@ AUTHENTICATION_BACKENDS = [
     "social_core.backends.twitter.TwitterOAuth",
     "social_core.backends.google.GoogleOAuth2",
 ]
-SOCIAL_AUTH_FACEBOOK_KEY = 188561607573394
-SOCIAL_AUTH_FACEBOOK_SECRET = "0658b1c1e6fa2eff0d9f85effc94834a"
+SOCIAL_AUTH_FACEBOOK_KEY = config("SOCIAL_AUTH_FACEBOOK_KEY")
+SOCIAL_AUTH_FACEBOOK_SECRET = config("SOCIAL_AUTH_FACEBOOK_SECRET")
 
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = (
-    "699308945001-klbnf4chtanj6u8f77jc7vs7ej9rol8p.apps.googleusercontent.com"
-)
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = "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"
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = config("SOCIAL_AUTH_GOOGLE_OAUTH2_KEY")
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = config("SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET")
 
 
 SOCIAL_AUTH_PIPELINE = [
