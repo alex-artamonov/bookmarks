@@ -162,3 +162,5 @@ cython_debug/
 .idea/witeboard.env
 .env
 *secret*
+cert.crt
+cert.key
